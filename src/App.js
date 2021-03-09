@@ -1,24 +1,32 @@
-import logo from './logo.svg';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
+import WelcomePage from './components/WelcomePage/WelcomePage';
+
 import './App.css';
+// import logo from './logo.svg';
+import logo from './assets/logo/uohyd-logo.jpg';
+import { LanguageContext } from './context/LanguageContext';
+import AudioRecord from './components/AudioRecord/AudioRecord';
+import VideoRecord from './components/VideoRecord/VideoRecord';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <LanguageContext.Provider value='bengali'>
+      <img src={logo} alt="uohyd" />
+      <Router>
+       
+        <Route path='/' exact>
+          <WelcomePage />
+        </Route>
+       
+        <Route path='/audio' exact>
+          <AudioRecord />
+        </Route>
+        
+        <Route path='/video' exact>
+          <VideoRecord />
+        </Route>
+      </Router>
+    </LanguageContext.Provider>
   );
 }
 
