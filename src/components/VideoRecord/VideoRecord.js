@@ -1,16 +1,24 @@
-import { Button } from '@material-ui/core';
 import React, { useState, useContext } from 'react'
 import { Link } from "react-router-dom";
+
+// video recorder component
 import VideoRecorder from 'react-video-recorder'
+
+// assets
 import { VideoRecordTexts } from '../../assets/ViewTexts/VideoRecordTexts';
 import { LanguageContext } from '../../context/LanguageContext';
 
+// firebase storage object
 import storage from '../../firebase';
+
+// material ui
+import { IconButton } from '@material-ui/core';
+import HomeIcon from '@material-ui/icons/Home';
 
 const VideoRecord = () => {
     // get the UI language
     let language = useContext(LanguageContext);
-    
+
     // video recording state
     const [state, setState] = useState('beforeStarting');
 
@@ -38,18 +46,18 @@ const VideoRecord = () => {
     return (
         <div>
             <Link to='/'>
-                <Button>
-                    Home
-            </Button>
+                <IconButton>
+                    <HomeIcon />
+                </IconButton>
             </Link>
             <h4>
                 {VideoRecordTexts.header[state.toString()][language.toString()]}
             </h4>
             <VideoRecorder
                 renderDisconnectedView={() => console.log('not connected')}
-                onRecordingComplete={videoBlob => recoringComplete(videoBlob) }
+                onRecordingComplete={videoBlob => recoringComplete(videoBlob)}
             />
-            
+
         </div>
     );
 

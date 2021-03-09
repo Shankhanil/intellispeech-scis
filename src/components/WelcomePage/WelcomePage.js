@@ -51,8 +51,8 @@ const WelcomePage = () => {
                     {WelcomePageTexts.credits[language.toString()]}
                 </p>
                 <div className={classes.avatar}>
-                    <Avatar alt="SG" src={sgAvatar} />
-                    <Avatar alt="CS" src={csAvatar} />
+                    {/* <Avatar alt="SG" src={sgAvatar} />
+                    <Avatar alt="CS" src={csAvatar} /> */}
                 </div>
                 <Button onClick={() => setCreditsOpen(false)}>
                     {WelcomePageTexts.close[language.toString()]}
@@ -113,13 +113,14 @@ const WelcomePage = () => {
 
             </div>
             <div className="login-btn">
+                {/* Video contribution button */}
                 <Link to='/video'>
                     <Button>
                         {WelcomePageTexts.vdoContribute[language.toString()]}
                     </Button>
                 </Link>
-
-                <Button>
+                {/* Audio contribution button */}
+                <Button disabled>
                     {WelcomePageTexts.audioContribute[language.toString()]}
                 </Button>
 

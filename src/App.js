@@ -11,12 +11,13 @@ import { LanguageContext } from './context/LanguageContext';
 
 // pages for routing
 import WelcomePage from './components/WelcomePage/WelcomePage';
+import AnnotationForm from './components/WelcomePage/AnnotationForm';
 import AudioRecord from './components/AudioRecord/AudioRecord';
 import VideoRecord from './components/VideoRecord/VideoRecord';
 
 function App() {
   return (
-    <LanguageContext.Provider value='bengali'>
+    <LanguageContext.Provider value='english'>
       <img src={logo} alt="uohyd" />
       <Router>
        
@@ -30,6 +31,10 @@ function App() {
         
         <Route path='/video' exact>
           <VideoRecord />
+        </Route>
+
+        <Route path='/form' exact>
+          <AnnotationForm />
         </Route>
       </Router>
     </LanguageContext.Provider>

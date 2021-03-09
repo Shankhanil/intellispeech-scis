@@ -1,7 +1,7 @@
 export const WelcomePageTexts = {
     "welcomeMsg":{
-        "english": "IntelliSpeech@SCIS welcomes you",
-        "bengali": "IntelliSpeech@SCIS-এ আপনাকে স্বাগত জানাই ",
+        "english": "Speech@SCIS welcomes you",
+        "bengali": "Speech@SCIS-এ আপনাকে স্বাগত জানাই ",
     },
     "requestMsg":{
         "english": "Contribute your voice data for our research",
@@ -32,8 +32,8 @@ export const WelcomePageTexts = {
         "bengali": "আমরা কারা "
     },
     "creditsModalHeader":{
-        "english": "We're the IntelliSpeech@SCIS research group",
-        "bengali": "আমরা হলাম IntelliSpeech@SCIS গবেষণা-মণ্ডলী "
+        "english": "We're the Speech@SCIS research group",
+        "bengali": "আমরা হলাম Speech@SCIS গবেষণা-মণ্ডলী "
     },
     "credits":{
         "english": "Made with ❤ @ SCIS",

@@ -1,16 +1,16 @@
 export const VideoRecordTexts = {
     "header": {
         "beforeStarting": {
-            "english": "Contribute your video data to IntelliSpeech@SCIS speech dataset",
-            "bengali": "IntelliSpeech@SCIS স্বরনথিতে নিজের video data দান করুন ",
+            "english": "Contribute your video data to Speech@SCIS speech dataset",
+            "bengali": "Speech@SCIS স্বরনথিতে নিজের video data দান করুন ",
         },
         "whileRecording": {
             "english": "Your video is being recorded",
             "bengali": "আপনার ভিডিও রেকর্ড হচ্ছে ",
         },
         "afterRecording": {
-            "english": "Thank you for contributing to IntelliSpeech@SCIS speech dataset",
-            "bengali": "IntelliSpeech@SCIS স্বরনথিতে দান করার জন্য আমরা কৃতজ্ঞ ",
+            "english": "Thank you for contributing to Speech@SCIS speech dataset",
+            "bengali": "Speech@SCIS স্বরনথিতে দান করার জন্য আমরা কৃতজ্ঞ ",
         }
     },
     "uploadMsg":{
