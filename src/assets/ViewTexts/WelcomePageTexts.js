@@ -32,8 +32,8 @@ export const WelcomePageTexts = {
         "bengali": "আমরা কারা "
     },
     "creditsModalHeader":{
-        "english": "About us",
-        "bengali": "আমাদের সম্পর্কে কিছু কথা "
+        "english": "We're the IntelliSpeech@SCIS research group",
+        "bengali": "আমরা হলাম IntelliSpeech@SCIS গবেষণা-মণ্ডলী "
     },
     "credits":{
         "english": "Made with <3 @ SCIS",

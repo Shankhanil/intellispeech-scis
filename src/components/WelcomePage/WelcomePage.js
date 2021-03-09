@@ -1,4 +1,4 @@
-import { Button } from "@material-ui/core";
+import { Avatar, Button } from "@material-ui/core";
 import { React, useContext } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
@@ -8,10 +8,11 @@ import { LanguageContext } from "../../context/LanguageContext";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import csAvatar from "../../assets/static/avatar/cs.jpg";
+import sgAvatar from "../../assets/static/avatar/sg.jpg";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-        // position: 'absolute',
         width: 400,
         // height: 500,
         backgroundColor: theme.palette.background.paper,
@@ -20,8 +21,16 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2, 4, 3),
 
         'align-items': 'center',
-        'min-height': 100,
+        'min-height': 200,
     },
+    avatar: {
+        display: 'flex',
+        'justify-content': 'center',
+        // 'font-size': '80',
+        '& > *': {
+            margin: theme.spacing(1),
+        },
+    }
 }));
 
 const WelcomePage = () => {
@@ -32,17 +41,23 @@ const WelcomePage = () => {
     const [purposeOpen, setPurposeOpen] = useState(false);
 
     const creditsBody = (
-        <div
-            className={classes.paper}>
-            <h2 id="simple-modal-title">
-                {WelcomePageTexts.creditsModalHeader[language.toString()]}
-            </h2>
-            <p id="simple-modal-description">
-                {WelcomePageTexts.credits[language.toString()]}
-            </p>
-            <Button onClick={() => setCreditsOpen(false)}>
-                {WelcomePageTexts.close[language.toString()]}
-            </Button>
+        <div>
+            <div
+                className={classes.paper}>
+                <h2 id="simple-modal-title">
+                    {WelcomePageTexts.creditsModalHeader[language.toString()]}
+                </h2>
+                <p id="simple-modal-description">
+                    {WelcomePageTexts.credits[language.toString()]}
+                </p>
+                <div className={classes.avatar}>
+                    <Avatar alt="SG" src={sgAvatar} />
+                    <Avatar alt="CS" src={csAvatar} />
+                </div>
+                <Button onClick={() => setCreditsOpen(false)}>
+                    {WelcomePageTexts.close[language.toString()]}
+                </Button>
+            </div>
         </div>
     );
 

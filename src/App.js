@@ -3,14 +3,14 @@ import WelcomePage from './components/WelcomePage/WelcomePage';
 
 import './App.css';
 // import logo from './logo.svg';
-import logo from './assets/logo/uohyd-logo.jpg';
+import logo from './assets/static/logo/uohyd-logo.jpg';
 import { LanguageContext } from './context/LanguageContext';
 import AudioRecord from './components/AudioRecord/AudioRecord';
 import VideoRecord from './components/VideoRecord/VideoRecord';
 
 function App() {
   return (
-    <LanguageContext.Provider value='bengali'>
+    <LanguageContext.Provider value='english'>
       <img src={logo} alt="uohyd" />
       <Router>
        
