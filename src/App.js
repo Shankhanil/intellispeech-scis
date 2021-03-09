@@ -1,16 +1,22 @@
 import { Route, BrowserRouter as Router } from 'react-router-dom';
-import WelcomePage from './components/WelcomePage/WelcomePage';
 
+// styles
 import './App.css';
-// import logo from './logo.svg';
+
+// assets
 import logo from './assets/static/logo/uohyd-logo.jpg';
+
+// context
 import { LanguageContext } from './context/LanguageContext';
+
+// pages for routing
+import WelcomePage from './components/WelcomePage/WelcomePage';
 import AudioRecord from './components/AudioRecord/AudioRecord';
 import VideoRecord from './components/VideoRecord/VideoRecord';
 
 function App() {
   return (
-    <LanguageContext.Provider value='english'>
+    <LanguageContext.Provider value='bengali'>
       <img src={logo} alt="uohyd" />
       <Router>
        

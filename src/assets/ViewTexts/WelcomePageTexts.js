@@ -17,7 +17,7 @@ export const WelcomePageTexts = {
     },
     "ourPurpose":{
         "english": "We plan to create some amazing speech-based intelligent models to serve humanity",
-        "bengali": "মানুষের স্বরের সাহজ্যে কৃত্তিম-বুদ্ধিমত্তা দিয়ে মানুষ্যত্বকে এগিয়ে নিয়ে যাবার একটা প্রয়াস আমাদের ",
+        "bengali": "মানুষের স্বরের সাহজ্যে কৃত্তিম-বুদ্ধিমত্তা দিয়ে মানুষ্যত্বকে এগিয়ে নিয়ে যাবার একটা প্রয়াস করছি আমরা ",
     },
     "vdoContribute":{
         "english": "Contribute your video data",
@@ -36,8 +36,8 @@ export const WelcomePageTexts = {
         "bengali": "আমরা হলাম IntelliSpeech@SCIS গবেষণা-মণ্ডলী "
     },
     "credits":{
-        "english": "Made with <3 @ SCIS",
-        "bengali": "পরম যত্নে তৈরি, আমাদের SCIS-এ  "
+        "english": "Made with ❤ @ SCIS",
+        "bengali": "SCIS-এ তৈরি, ❤ দিয়ে"
     },
     "close":{
         "english": "Close",
