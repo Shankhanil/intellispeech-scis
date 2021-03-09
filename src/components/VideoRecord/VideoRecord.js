@@ -8,32 +8,31 @@ import { LanguageContext } from '../../context/LanguageContext';
 import storage from '../../firebase';
 
 const VideoRecord = () => {
+    // get the UI language
     let language = useContext(LanguageContext);
+    
+    // video recording state
     const [state, setState] = useState('beforeStarting');
-    // let videoRec;
-    const uploadToFirebase = () => {
-        const storageRef = storage.ref();
 
-        // refernce to file
-        var ref = storageRef.child('msg.txt');
-        console.log(storageRef);
+    // reference to firebase storage
+    const storageRef = storage.ref();
 
-        // the file blob
-        var message = 'This is my message.';
+    // function to execute after recording is complete
+    const recoringComplete = (videoBlob) => {
+        // update the state
+        setState('afterRecording');
 
-        // upload
-        ref.putString(message).then((snapshot) => {
-            console.log('Uploaded a raw string!'); // success msg
+        /**
+         * create a reference to the new file
+         * Generate filename for each person. 
+         */
+        var ref = storageRef.child('msg.mp4');
+
+        // upload the file
+        ref.put(videoBlob).then((snapshot) => {
+            setState('uploadSuccess');
+            console.log('Uploaded a blob or file!');
         });
-    }
-
-    const UploadVideo = () => {
-        return (
-            <Button
-                onClick={() => uploadToFirebase()}>
-                {VideoRecordTexts.uploadMsg[language.toString()]}
-            </Button>
-        );
     }
 
     return (
@@ -48,21 +47,9 @@ const VideoRecord = () => {
             </h4>
             <VideoRecorder
                 renderDisconnectedView={() => console.log('not connected')}
-                onRecordingComplete={videoBlob => {
-                    // videoRec = videoBlob;
-                    setState('afterRecording');
-                    console.log('videoBlob', videoBlob);
-                    let urlObject = window.URL || window.webkitURL;
-                    let url = urlObject.createObjectURL(videoBlob);
-                    console.log('blob-url', url);
-                }}
+                onRecordingComplete={videoBlob => recoringComplete(videoBlob) }
             />
-            {/* {
-                (state === 'afterRecording')
-                    ? <UploadVideo />
-                    : < div />
-            } */}
-            <UploadVideo />
+            
         </div>
     );
 

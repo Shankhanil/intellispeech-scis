@@ -1,7 +1,6 @@
 import React from "react";
 import MicRecorder from 'mic-recorder-to-mp3';
 import { useState } from "react";
-import { useEffect } from "react";
 import { Button } from "@material-ui/core";
 
 const AudioRecord = () => {
@@ -12,20 +11,7 @@ const AudioRecord = () => {
         blobURL: '',
         isBlocked: false,
     });
-
-    useEffect(() => {
-        // Navigator.getUserMedia({ audio: true },
-        //     () => {
-        //         console.log('Permission Granted');
-        //         setState({ isBlocked: false });
-        //     },
-        //     () => {
-        //         console.log('Permission Denied');
-        //         setState({ isBlocked: true })
-        //     },
-        // );
-    });
-
+    
     const start = () => {
         if (state.isBlocked) {
             console.log('Permission Denied');
