@@ -55,7 +55,7 @@ const VideoRecord = () => {
          * Generate filename for each person. 
          */
         const videoFile = `${annotation.uid}.mp4`;
-        const annotationFile = `${annotation.uid}_annotation.mp4`;
+        const annotationFile = `${annotation.uid}_annotation.txt`;
         
         var videoRef = storageRef.child(videoFile);
         var annotationRef = storageRef.child(annotationFile);
