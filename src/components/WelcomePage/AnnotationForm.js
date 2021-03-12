@@ -13,7 +13,6 @@ import { Button, makeStyles, TextField } from "@material-ui/core";
 
 import { v4 as uuidv4 } from 'uuid';
 import { Link } from "react-router-dom";
-import VideoRecord from "../VideoRecord/VideoRecord";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
