@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { Link } from "react-router-dom";
 
 // video recorder component
@@ -21,43 +21,57 @@ const VideoRecord = () => {
 
     // video recording state
     const [state, setState] = useState('beforeStarting');
-
     // reference to firebase storage
     const storageRef = storage.ref();
+
+    let uid, ageVal, genderVal;
+
+    // hooks
+    useEffect(() => {
+        uid = localStorage.getItem('uid');
+        ageVal = localStorage.getItem('ageVal');
+        genderVal = localStorage.getItem('genderVal');
+
+        console.log({uid, ageVal, genderVal}); 
+    }, []);
 
     // function to execute after recording is complete
     const recoringComplete = (videoBlob) => {
         // update the state
         setState('afterRecording');
-
         /**
          * create a reference to the new file
          * Generate filename for each person. 
          */
-        var ref = storageRef.child('msg.mp4');
+        const filename = `${uid}.mp4`;
+        var ref = storageRef.child(filename);
+        console.log(filename);
 
         // upload the file
-        ref.put(videoBlob).then((snapshot) => {
-            setState('uploadSuccess');
-            console.log('Uploaded a blob or file!');
-        });
+        // ref.put(videoBlob).then((snapshot) => {
+        //     console.log(snapshot);
+        //     setState('uploadSuccess');
+        //     console.log('Uploaded a blob or file!');
+        // });
+    }
+
+    const ShowReadText = () => {
+        return <p> {VideoRecordTexts.readTexts[language.toString()]} </p>;
     }
 
     return (
         <div>
+            
             <Link to='/'>
                 <IconButton>
                     <HomeIcon />
                 </IconButton>
             </Link>
-            <h4>
-                {VideoRecordTexts.header[state.toString()][language.toString()]}
-            </h4>
             <VideoRecorder
                 renderDisconnectedView={() => console.log('not connected')}
                 onRecordingComplete={videoBlob => recoringComplete(videoBlob)}
             />
-
+            <ShowReadText />
         </div>
     );
 

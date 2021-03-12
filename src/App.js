@@ -17,7 +17,7 @@ import VideoRecord from './components/VideoRecord/VideoRecord';
 
 function App() {
   return (
-    <LanguageContext.Provider value='english'>
+    <LanguageContext.Provider value='bengali'>
       <img src={logo} alt="uohyd" />
       <Router>
        
@@ -33,8 +33,8 @@ function App() {
           <VideoRecord />
         </Route>
 
-        <Route path='/form' exact>
-          <AnnotationForm />
+        <Route path='/vform' exact>
+          <AnnotationForm nextPage = {'/video'} />
         </Route>
       </Router>
     </LanguageContext.Provider>

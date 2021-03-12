@@ -1,13 +1,19 @@
-import { React, useContext, useState } from "react";
+import { React, useContext, useEffect, useState } from "react";
 
 import { LanguageContext } from "../../context/LanguageContext";
+import { AnnotationFormText } from '../../assets/ViewTexts/AnnotationFormText';
 
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
-import { makeStyles, TextField } from "@material-ui/core";
+import { Button, makeStyles, TextField } from "@material-ui/core";
+
+
+import { v4 as uuidv4 } from 'uuid';
+import { Link } from "react-router-dom";
+import VideoRecord from "../VideoRecord/VideoRecord";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -23,27 +29,59 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const WelcomePage = () => {
+const AnnotationForm = ({nextPage}) => {
 	let language = useContext(LanguageContext);
-	const classes = useStyles();
-	const [value, setValue] = useState('female');
 
-	const handleChange = (event) => {
-		setValue(event.target.value);
+	// styling for form
+	const classes = useStyles();
+
+	// uid generator
+	const [uid, setUid] = useState();
+
+	// hooks
+	const [genderValue, setGenderValue] = useState('female');
+	const [ageValue, setAgeValue] = useState(0);
+
+	useEffect(() => {
+		// uid = uuidv4();
+		setUid(uuidv4());
+	}, []);
+
+	const handleGenderChange = (event) => {
+		setGenderValue(event.target.value);
+		// console.log(genderValue);
 	};
 
+	const handleAgeChange = (event) => {
+		setAgeValue(event.target.value);
+		// console.log(genderValue);
+	};
+	const writeFormData = () => {
+		localStorage.setItem('uid', uid);
+		localStorage.setItem('genderVal', genderValue);
+		localStorage.setItem('ageVal', ageValue);
+		// console.log(localStorage.getItem('uid'));
+		// console.log({genderValue, ageValue});
+	}
 	return (
 		<div>
-			<h1>
-				Unique identifier ID
-            </h1>
+			<h4>
+				{AnnotationFormText.uid[language.toString()]} : {uid}
+			</h4>
 			<form className={classes.root} noValidate autoComplete="off">
 				{/* Gender */}
 				<FormControl className={classes.formElement}>
-					<FormLabel >Your Gender</FormLabel>
-					<RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
-						<FormControlLabel value="female" control={<Radio />} label="Female" />
-						<FormControlLabel value="male" control={<Radio />} label="Male" />
+					<FormLabel > {AnnotationFormText.yourGender[language.toString()]} </FormLabel>
+					<RadioGroup aria-label="gender" name="gender" value={genderValue} onChange={handleGenderChange}>
+						<FormControlLabel
+							value="female"
+							control={<Radio />}
+							label={AnnotationFormText.text.female[language.toString()]} />
+
+						<FormControlLabel
+							value="male"
+							control={<Radio />}
+							label={AnnotationFormText.text.male[language.toString()]} />
 					</RadioGroup>
 				</FormControl>
 
@@ -52,21 +90,27 @@ const WelcomePage = () => {
 					className={classes.formElement}>
 
 					<FormLabel>
-						Your Age
+						{AnnotationFormText.yourAge[language.toString()]}
 					</FormLabel>
 					<TextField
 						id="standard-number"
-						label="Number"
+						label={AnnotationFormText.text.number[language.toString()]}
 						type="number"
+						name="age"
+						onChange={handleAgeChange}
 						InputLabelProps={{
 							shrink: true,
 						}}
 					/>
 				</FormControl>
-
+				<Link to ={`${nextPage}`} >
+					<Button 
+						onClick = {() => writeFormData() }
+					> {AnnotationFormText.submit[language.toString()]} </Button>
+				</Link>
 			</form>
 		</div>
 	);
 }
 
-export default WelcomePage;
+export default AnnotationForm;
