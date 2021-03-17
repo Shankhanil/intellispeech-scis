@@ -17,7 +17,7 @@ import VideoRecord from './components/VideoRecord/VideoRecord';
 
 function App() {
   return (
-    <LanguageContext.Provider value='bengali'>
+    <LanguageContext.Provider value='english'>
       <img src={logo} alt="uohyd" />
       <Router>
        

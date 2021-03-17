@@ -8,7 +8,8 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
-import { Button, makeStyles, TextField } from "@material-ui/core";
+import { Button, IconButton, makeStyles, TextField } from "@material-ui/core";
+import HomeIcon from '@material-ui/icons/Home';
 
 
 import { v4 as uuidv4 } from 'uuid';
@@ -28,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const AnnotationForm = ({nextPage}) => {
+const AnnotationForm = ({ nextPage }) => {
 	let language = useContext(LanguageContext);
 
 	// styling for form
@@ -60,10 +61,15 @@ const AnnotationForm = ({nextPage}) => {
 		localStorage.setItem('genderVal', genderValue);
 		localStorage.setItem('ageVal', ageValue);
 		// console.log(localStorage.getItem('uid'));
-		// console.log({genderValue, ageValue});
+		console.log({uid, genderValue, ageValue});
 	}
 	return (
 		<div>
+			<Link to='/'>
+				<IconButton>
+					<HomeIcon />
+				</IconButton>
+			</Link>
 			<h4>
 				{AnnotationFormText.uid[language.toString()]} : {uid}
 			</h4>
@@ -102,9 +108,9 @@ const AnnotationForm = ({nextPage}) => {
 						}}
 					/>
 				</FormControl>
-				<Link to ={`${nextPage}`} >
-					<Button 
-						onClick = {() => writeFormData() }
+				<Link to={`${nextPage}`} >
+					<Button
+						onClick={() => writeFormData()}
 					> {AnnotationFormText.submit[language.toString()]} </Button>
 				</Link>
 			</form>

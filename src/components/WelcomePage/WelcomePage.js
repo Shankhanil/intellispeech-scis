@@ -1,5 +1,5 @@
 import { Avatar, Button } from "@material-ui/core";
-import { React, useContext } from "react";
+import { React, Suspense, useContext } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 
@@ -13,15 +13,15 @@ import sgAvatar from "../../assets/static/avatar/sg.jpg";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-        width: 400,
+        width: "80vw",
+        'min-height': "30vh",
         // height: 500,
         backgroundColor: theme.palette.background.paper,
         border: '2px solid #000',
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
-
         'align-items': 'center',
-        'min-height': 200,
+
     },
     avatar: {
         display: 'flex',
@@ -42,38 +42,43 @@ const WelcomePage = () => {
 
     const creditsBody = (
         <div>
-            <div
-                className={classes.paper}>
-                <h2 id="simple-modal-title">
-                    {WelcomePageTexts.creditsModalHeader[language.toString()]}
-                </h2>
-                <p id="simple-modal-description">
-                    {WelcomePageTexts.credits[language.toString()]}
-                </p>
-                <div className={classes.avatar}>
-                    <Avatar alt="SG" src={sgAvatar} />
-                    <Avatar alt="CS" src={csAvatar} />
+            <Suspense fallback={<h5> Loading.....</h5>}>
+                <div
+                    className={classes.paper}>
+                    <h2 id="simple-modal-title">
+                        {WelcomePageTexts.creditsModalHeader[language.toString()]}
+                    </h2>
+                    <p id="simple-modal-description">
+                        {WelcomePageTexts.credits[language.toString()]}
+                    </p>
+                    <div className={classes.avatar}>
+                        <Avatar alt="SG" src={sgAvatar} />
+                        <Avatar alt="CS" src={csAvatar} />
+                    </div>
+                    <Button onClick={() => setCreditsOpen(false)}>
+                        {WelcomePageTexts.close[language.toString()]}
+                    </Button>
                 </div>
-                <Button onClick={() => setCreditsOpen(false)}>
-                    {WelcomePageTexts.close[language.toString()]}
-                </Button>
-            </div>
+            </Suspense>
         </div>
     );
 
     const purposeBody = (
-        <div
-            className={classes.paper}>
-            <h2 id="simple-modal-title">
-                {WelcomePageTexts.ourPurposeModalHeader[language.toString()]}
-            </h2>
-            <p id="simple-modal-description">
-                {WelcomePageTexts.ourPurpose[language.toString()]}
-            </p>
-            <Button onClick={() => setPurposeOpen(false)}>
-                {WelcomePageTexts.close[language.toString()]}
-            </Button>
-        </div>
+        <Suspense fallback={<h5> Loading.....</h5>}>
+
+            <div
+                className={classes.paper}>
+                <h2 id="simple-modal-title">
+                    {WelcomePageTexts.ourPurposeModalHeader[language.toString()]}
+                </h2>
+                <p id="simple-modal-description">
+                    {WelcomePageTexts.ourPurpose[language.toString()]}
+                </p>
+                <Button onClick={() => setPurposeOpen(false)}>
+                    {WelcomePageTexts.close[language.toString()]}
+                </Button>
+            </div>
+        </Suspense>
     );
 
     return (
