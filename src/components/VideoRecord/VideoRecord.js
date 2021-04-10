@@ -82,6 +82,9 @@ const VideoRecord = () => {
 
     // hooks
     useEffect(() => {
+        console.log(JSON.stringify(annotation));
+    });
+    useEffect(() => {
         if (state === 'afterRecording') {
             setUploadState(true);
         }
@@ -102,13 +105,15 @@ const VideoRecord = () => {
         var videoRef = storageRef.child(videoFile);
         var annotationRef = storageRef.child(annotationFile);
 
+        // Annotation string
+        var annotationString = JSON.stringify(annotation);
         // upload the video-file
         videoRef.put(videoBlob).then((snapshot) => {
             console.log(snapshot);
             // setState('uploadSuccess');
             console.log('Uploaded a blob or file!');
             // upload the video-file
-            annotationRef.putString(videoBlob).then((snapshot) => {
+            annotationRef.putString(annotationString).then((snapshot) => {
                 console.log(snapshot);
                 setState('uploadSuccess');
                 console.log('Uploaded annotation string!');
@@ -130,10 +135,12 @@ const VideoRecord = () => {
                     </IconButton>
                 </Link>
                 {/* <p> {annotation.uid}, {annotation.ageVal}, {annotation.genderVal} </p> */}
-                <VideoRecorder
-                    renderDisconnectedView={() => console.log('not connected')}
-                    onRecordingComplete={videoBlob => recoringComplete(videoBlob)}
-                />
+                <Suspense fallback={<h5> Loading video recorder....</h5>}>
+                    <VideoRecorder
+                        renderDisconnectedView={() => console.log('not connected')}
+                        onRecordingComplete={videoBlob => recoringComplete(videoBlob)}
+                    />
+                </Suspense>
                 <ShowReadText />
                 {/* <Button onClick={() => { setState('afterRecording') }}> Record </Button> */}
                 {/* <h1> {uploadState.toString()} </h1> */}

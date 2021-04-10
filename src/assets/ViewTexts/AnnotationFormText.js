@@ -26,7 +26,7 @@ export const AnnotationFormText = {
         },
     },
     "submit":{
-        "english": "Submit annotation data",
-        "bengali": "এনটেশন তথ্যগুলি জমা করুন "
+        "english": "Submit data",
+        "bengali": "তথ্যগুলি জমা করুন "
     }
 }

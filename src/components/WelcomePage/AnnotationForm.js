@@ -98,6 +98,7 @@ const AnnotationForm = ({ nextPage }) => {
 						{AnnotationFormText.yourAge[language.toString()]}
 					</FormLabel>
 					<TextField
+						required
 						id="standard-number"
 						label={AnnotationFormText.text.number[language.toString()]}
 						type="number"
