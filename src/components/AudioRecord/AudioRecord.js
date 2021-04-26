@@ -9,7 +9,7 @@ const AudioRecord = () => {
     const [state, setState] = useState({
         isRecording: false,
         blobURL: '',
-        isBlocked: false,
+        isBlocked: false, 
     });
     
     const start = () => {
