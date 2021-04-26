@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 import MicRecorder from 'mic-recorder-to-mp3';
-import { useState } from "react";
-import { Button } from "@material-ui/core";
+import { useState } from 'react';
+import { Button } from '@material-ui/core';
 
 const AudioRecord = () => {
     const Mp3Recorder = new MicRecorder({ bitRate: 128 });
@@ -29,7 +29,7 @@ const AudioRecord = () => {
             .stop()
             .getMp3()
             .then(([buffer, blob]) => {
-                const blobURL = URL.createObjectURL(blob)
+                const blobURL = URL.createObjectURL(blob);
                 setState({ blobURL, isRecording: false });
             }).catch((e) => console.log(e));
     };

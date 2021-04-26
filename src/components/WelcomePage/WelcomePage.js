@@ -1,22 +1,22 @@
 import {
     // Avatar, 
     Button
-} from "@material-ui/core";
-import { React, Suspense, useContext } from "react";
+} from '@material-ui/core';
+import { React, Suspense, useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 
 import { WelcomePageTexts } from '../../assets/ViewTexts/WelcomePageTexts';
-import { LanguageContext } from "../../context/LanguageContext";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { LanguageContext } from '../../context/LanguageContext';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 // import csAvatar from "../../assets/static/avatar/cs.jpg";
 // import sgAvatar from "../../assets/static/avatar/sg.jpg";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-        width: "80vw",
+        width: '80vw',
         'min-height': "50vh",
         // height: 500,
         backgroundColor: theme.palette.background.paper,
@@ -95,8 +95,7 @@ const WelcomePage = () => {
     const purposeBody = (
         <Suspense fallback={<h5> Loading.....</h5>}>
 
-            <div
-                className={classes.paper}>
+            <div className={classes.paper}>
                 <h2 id="simple-modal-title">
                     {WelcomePageTexts.ourPurposeModalHeader[language.toString()]}
                 </h2>
@@ -111,8 +110,7 @@ const WelcomePage = () => {
     );
     const instructionsBody = (
         <Suspense fallback={<h5> Loading.....</h5>}>
-            <div
-                className={classes.paper}>
+            <div className={classes.paper}>
                 <h1> {WelcomePageTexts.instructionsBtn[language.toString()]} </h1>
                 <ul className={classes.instructions}> {instructionListDiv} </ul>
                 <Button onClick={() => setInstructionsOpen(false)}>
@@ -124,8 +122,7 @@ const WelcomePage = () => {
 
     const policyBody = (
         <Suspense fallback={<h5> Loading.....</h5>}>
-            <div
-                className={classes.paper}>
+            <div className={classes.paper}>
                 {WelcomePageTexts.policyBody[language.toString()]}
                 <Button onClick={() => setPolicyOpen(false)}>
                     {WelcomePageTexts.close[language.toString()]}
@@ -149,9 +146,7 @@ const WelcomePage = () => {
                 >
                     {instructionsBody}
                 </Modal>
-                <Button
-                    onClick={() => setPurposeOpen(true)}>
-
+                <Button onClick={() => setPurposeOpen(true)}>
                     {WelcomePageTexts.ourPurposeBtnTxt[language.toString()]}
                 </Button>
                 <Modal
@@ -163,9 +158,7 @@ const WelcomePage = () => {
                     {purposeBody}
                 </Modal>
 
-
-                <Button
-                    onClick={() => setCreditsOpen(true)}>
+                <Button onClick={() => setCreditsOpen(true)}>
                     {WelcomePageTexts.creditsBtnTxt[language.toString()]}
                 </Button>
                 <Modal
