@@ -1,3 +1,4 @@
+import React from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 
 // styles
@@ -18,7 +19,7 @@ import VideoRecord from './components/VideoRecord/VideoRecord';
 function App() {
   return (
     <LanguageContext.Provider value='english'>
-      <img src={logo} alt="uohyd" />
+      <img src={logo} alt="University-of-Hyderabad" />
       <Router>
        
         <Route path='/' exact>

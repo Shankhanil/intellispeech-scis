@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect, Suspense } from 'react'
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect } from 'react-router-dom';
 
 // video recorder component
 import VideoRecorder from 'react-video-recorder'
@@ -55,8 +55,7 @@ const VideoRecord = () => {
 
     // modal definition
     const uploadingModal = (
-        <div
-            className={classes.paper}>
+        <div className={classes.paper}>
             <h2 id="simple-modal-title">
                 {VideoRecordTexts.afterRecording[language.toString()]}
             </h2>
@@ -119,11 +118,11 @@ const VideoRecord = () => {
                 console.log('Uploaded annotation string!');
             });
         });
-    }
+    };
 
     const ShowReadText = () => {
         return <p> {VideoRecordTexts.readTexts[language.toString()]} </p>;
-    }
+    };
 
     return (
         <div>

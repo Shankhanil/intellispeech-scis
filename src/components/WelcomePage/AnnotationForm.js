@@ -1,6 +1,6 @@
-import { React, useContext, useEffect, useState } from "react";
+import { React, useContext, useEffect, useState } from 'react';
 
-import { LanguageContext } from "../../context/LanguageContext";
+import { LanguageContext } from '../../context/LanguageContext';
 import { AnnotationFormText } from '../../assets/ViewTexts/AnnotationFormText';
 
 import Radio from '@material-ui/core/Radio';
@@ -8,12 +8,12 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
-import { Button, IconButton, makeStyles, TextField } from "@material-ui/core";
+import { Button, IconButton, makeStyles, TextField } from '@material-ui/core';
 import HomeIcon from '@material-ui/icons/Home';
 
 
 import { v4 as uuidv4 } from 'uuid';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -91,9 +91,7 @@ const AnnotationForm = ({ nextPage }) => {
 				</FormControl>
 
 				{/* Age */}
-				<FormControl
-					className={classes.formElement}>
-
+				<FormControl className={classes.formElement}>
 					<FormLabel>
 						{AnnotationFormText.yourAge[language.toString()]}
 					</FormLabel>
