@@ -8,6 +8,9 @@ function Home() {
                 SPEECH@SCIS<br/>
                 Welcomes You
             </div>
+            <div className = 'home_text_2'>
+                Donate Your Voice And Video To Our Speech <br/>Dataset
+            </div>
             <div className = 'btn'>
                 <button>Record your Video</button>
                 <button>Record your Audio</button>
