@@ -19,8 +19,8 @@
 }
 .header_logo{
     object-fit: contain;
+    margin-left: 5%;
     margin-top: 2%;
-    margin-left: 20%;
 }
 .header_options{
     padding-left: 20%;
