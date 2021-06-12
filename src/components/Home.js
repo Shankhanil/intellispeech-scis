@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import AnnotationForm from './WelcomePage/AnnotationForm.js';
 import VideoRecord from  './VideoRecord/VideoRecord.js';
 import AudioRecord from './AudioRecord/AudioRecord.js';
+import { motion } from 'framer-motion';
 
 function Home() {
     return (
