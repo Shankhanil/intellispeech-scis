@@ -20,11 +20,12 @@ import Home from './components/Home';
 
 function App() {
   return (
+    <div className = 'main'>
     <LanguageContext.Provider value='english'>
       <Router>
-       
+      <Header className = 'header' />
         <Route path='/' exact>
-          <Header className = 'header' />
+          
           <Home />
         </Route>
        
@@ -39,8 +40,13 @@ function App() {
         <Route path='/vform' exact>
           <AnnotationForm nextPage = {'/video'} />
         </Route>
+
+        <Route path = '/aform' exact>
+          <AnnotationForm nextPage = {'/audio'} />
+        </Route>
       </Router>
     </LanguageContext.Provider>
+    </div>
   );
 }
 

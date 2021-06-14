@@ -1,5 +1,6 @@
 import React from 'react';
 import './Home.css';
+import {Link} from 'react-router-dom';
 
 function Home() {
     return (
@@ -12,8 +13,8 @@ function Home() {
                 Donate Your Voice And Video To Our Speech <br/>Dataset
             </div>
             <div className = 'btn'>
-                <button>Record your Video</button>
-                <button>Record your Audio</button>
+               <Link to = '/vform' className = 'btn_link'> <button className = 'inner_btn'>Record your Video</button> </Link>
+                <Link to = '/aform' className = 'btn_link'><button className = 'inner_btn'>Record your Audio</button></Link>
             </div>
         </div>
     )
