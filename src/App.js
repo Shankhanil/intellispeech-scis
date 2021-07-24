@@ -21,10 +21,11 @@ import Home from './components/Home';
 function App() {
   return (
     <LanguageContext.Provider value='english'>
+      <div className = 'container'>
       <Router>
-       
+      <Header className = 'header' />
         <Route path='/' exact>
-          <Header className = 'header' />
+          
           <Home />
         </Route>
        
@@ -40,6 +41,7 @@ function App() {
           <AnnotationForm nextPage = {'/video'} />
         </Route>
       </Router>
+      </div>
     </LanguageContext.Provider>
   );
 }

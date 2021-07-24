@@ -6,3 +6,14 @@ body {
   position: absolute;
   top: 0;
 }
+.container{
+  height: 69.7vh;
+  width: 100%;
+  background-color: blue;
+  background-image:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url('./img/04-hyderabaduniversityjpg.jpg');
+  background-size:100% 100%;
+  padding-top: 15%;
+  padding-left: 0%;
+  top: 0;
+  overflow:hidden;
+}

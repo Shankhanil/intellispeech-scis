@@ -10,7 +10,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import { Button, IconButton, makeStyles, TextField } from '@material-ui/core';
 import HomeIcon from '@material-ui/icons/Home';
-
+import './AnnotationForm.css';
 
 import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
@@ -64,7 +64,7 @@ const AnnotationForm = ({ nextPage }) => {
 		console.log({uid, genderValue, ageValue});
 	}
 	return (
-		<div>
+		<div className = 'annotation-form'>
 			<Link to='/'>
 				<IconButton>
 					<HomeIcon />
