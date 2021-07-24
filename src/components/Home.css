@@ -22,21 +22,14 @@
 }
 .btn{
     display: flex;
-    margin-top: 2%;
-    flex: 1;
 }
-.btn1{
-    width: 20%;
-}
-.btn2{
-    width: 20%;
-    padding-left: 1%;
-}
-.btn button{
+.btn Button{
     background-color: rgba(0,0,0,0);
-    padding-top: 3%;
-    padding-bottom: 3%;
-    width: 100%;
+    margin-top: 1.5%;
+    margin-right: 1%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    width: 17%;
     border-radius: 60px;
     border-color: white;
     border-width: thin;
