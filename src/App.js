@@ -1,13 +1,14 @@
 import React from 'react';
-import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 
 // styles
 import './App.css';
 
 // assets
 //import logo from './assets/static/logo/uohyd-logo.jpg';
-
-// context
+import AnnotationForm from './components/WelcomePage/AnnotationForm';
+import AudioRecord from './components/AudioRecord/AudioRecord';
+import VideoRecord from './components/VideoRecord/VideoRecord';
 import { LanguageContext } from './context/LanguageContext';
 
 // pages for routing
@@ -18,33 +19,32 @@ import Home from './components/Home';
 function App() {
   return (
     <LanguageContext.Provider value='english'>
+      <div className = 'main'>
+      <Header className = 'header' />
       <Router>
-       
+       <Switch>
         <Route path='/' exact>
-          <Header className = 'header' />
           <Home />
         </Route>
        
         <Route path='/audio' exact>
-          <Header className = 'header' />
-          <Home />
+          <AudioRecord />
         </Route>
         
         <Route path='/video' exact>
-          <Header className = 'header' />
-          <Home />
+          <VideoRecord />
         </Route>
 
         <Route path='/vform' exact>
-          <Header className = 'header' />
-          <Home />
+          <AnnotationForm nextPage = "/video" />
         </Route>
 
         <Route path='/aform' exact>
-          <Header className = 'header' />
-          <Home />
+          <AnnotationForm nextPage = "/audio" />
         </Route>
+      </Switch>
       </Router>
+      </div>
     </LanguageContext.Provider>
   );
 }
