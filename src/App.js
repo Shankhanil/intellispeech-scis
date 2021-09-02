@@ -40,6 +40,10 @@ function App() {
         <Route path='/vform' exact>
           <AnnotationForm nextPage = {'/video'} />
         </Route>
+
+        <Route path='/aform' exact>
+        <AnnotationForm nextPage = {'/audio'} />
+        </Route>
       </Router>
       </div>
     </LanguageContext.Provider>

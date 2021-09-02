@@ -2,7 +2,7 @@ import React from 'react';
 import MicRecorder from 'mic-recorder-to-mp3';
 import { useState } from 'react';
 import { Button } from '@material-ui/core';
-
+import './AudioRecord.css'
 const AudioRecord = () => {
     const Mp3Recorder = new MicRecorder({ bitRate: 128 });
 
@@ -34,15 +34,15 @@ const AudioRecord = () => {
             }).catch((e) => console.log(e));
     };
     return (
-        <div>
+        <div className = 'audio-record'>
             <Button onClick={() => start()} disabled={state.isRecording}>
-                Record
+                 Record
             </Button>
 
             <Button onClick={() => stop()} disabled={!state.isRecording}>
                 Stop
             </Button>
-            <audio src={state.blobURL} controls="controls" />
+            <div display = "inline-block"><audio src={state.blobURL} controls="controls"/></div>
         </div>
     );
 }
