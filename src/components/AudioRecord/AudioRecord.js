@@ -35,6 +35,7 @@ const AudioRecord = () => {
     };
     return (
         <div className = 'audio-record'>
+            <div className = 'audio_record_buttons'>
             <Button onClick={() => start()} disabled={state.isRecording}>
                  Record
             </Button>
@@ -42,7 +43,8 @@ const AudioRecord = () => {
             <Button onClick={() => stop()} disabled={!state.isRecording}>
                 Stop
             </Button>
-            <div display = "inline-block"><audio src={state.blobURL} controls="controls"/></div>
+            </div>
+            <div display = "inline-block"><audio src={state.blobURL} controls="controls" className="audio_recorder"/></div>
         </div>
     );
 }

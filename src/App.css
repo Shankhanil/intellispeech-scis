@@ -6,11 +6,48 @@ body {
   position: absolute;
   top: 0;
 }
-.container{
+.home{
   height: 69.7vh;
   width: 100%;
   background-color: blue;
   background-image:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url('./img/04-hyderabaduniversityjpg.jpg');
+  background-size:100% 100%;
+  padding-top: 15%;
+  padding-left: 5%;
+  top: 0;
+  color: rgb(255, 255, 255);
+  overflow:hidden;
+}
+
+.about{
+  height: 69.7vh;
+  width: 100%;
+  background-color: blue;
+  background-image: url('./img/381719.jpg');
+  background-size:100% 100%;
+  padding-top: 15%;
+  padding-left: 0%;
+  top: 0;
+  overflow:hidden;
+}
+
+.privacy{
+  height: 69.7vh;
+  width: 100%;
+  background-color: blue;
+  background-image: linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)), url('./img/bc8d5774.jpg');
+  background-size:100% 100%;
+  padding-top: 15%;
+  padding-left: 0%;
+  top: 0;
+  overflow:hidden;
+}
+
+.readme{
+  height: 69.7vh;
+  width: 100%;
+  background-color: blue;
+  background-image: linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)), url('./img/kwhisper-2.jpg');
   background-size:100% 100%;
   padding-top: 15%;
   padding-left: 0%;

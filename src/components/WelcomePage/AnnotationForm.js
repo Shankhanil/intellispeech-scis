@@ -67,7 +67,7 @@ const AnnotationForm = ({ nextPage }) => {
 	}
    // document.getElementById('annotation-form-text').style.color = "white"
 	return (
-		<div className = 'annotation-form'>
+		<div className = 'home'>
 			<Link to='/'>
 				<IconButton>
 					<HomeIcon />
