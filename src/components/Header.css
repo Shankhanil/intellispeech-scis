@@ -29,13 +29,22 @@
     justify-content: space-evenly;
     flex: 1;
 }
-.options{
+.white{
     color: white;
     text-align: center;
     transition: color 500ms, background-color 500ms;
     width: 130%;
 }
-.options:hover{
+.black{
+    color: black;
+    text-align: center;
+    transition: color 500ms, background-color 500ms;
+    width: 130%;
+}
+.black:hover{
+    background-color: white;
+}
+.white:hover{
     background-color: white;
     color: rgba(0, 0, 0, 0.75);
 }

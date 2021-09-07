@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 			width: '25ch',
 		},
 		color: 'white',
-		textDecorationColor: 'white',
+		textDecorationColor:  'white',
 	},
 	formElement: {
 		margin: theme.spacing(1),
