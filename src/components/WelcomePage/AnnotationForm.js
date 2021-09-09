@@ -22,6 +22,8 @@ const useStyles = makeStyles((theme) => ({
 			margin: theme.spacing(1),
 			width: '25ch',
 		},
+		color: 'white',
+		textDecorationColor:  'white',
 	},
 	formElement: {
 		margin: theme.spacing(1),
@@ -63,8 +65,9 @@ const AnnotationForm = ({ nextPage }) => {
 		// console.log(localStorage.getItem('uid'));
 		console.log({uid, genderValue, ageValue});
 	}
+   // document.getElementById('annotation-form-text').style.color = "white"
 	return (
-		<div className = 'annotation-form'>
+		<div className = 'home'>
 			<Link to='/'>
 				<IconButton>
 					<HomeIcon />
@@ -76,8 +79,8 @@ const AnnotationForm = ({ nextPage }) => {
 			<form className={classes.root} noValidate autoComplete="off">
 				{/* Gender */}
 				<FormControl className={classes.formElement}>
-					<FormLabel > {AnnotationFormText.yourGender[language.toString()]} </FormLabel>
-					<RadioGroup aria-label="gender" name="gender" value={genderValue} onChange={handleGenderChange}>
+					<FormLabel className = {classes.root}> {AnnotationFormText.yourGender[language.toString()]} </FormLabel>
+					<RadioGroup className = {classes.root} aria-label="gender" name="gender" value={genderValue} onChange={handleGenderChange}>
 						<FormControlLabel
 							value="female"
 							control={<Radio />}
@@ -92,11 +95,12 @@ const AnnotationForm = ({ nextPage }) => {
 
 				{/* Age */}
 				<FormControl className={classes.formElement}>
-					<FormLabel>
+					<FormLabel className = {classes.root}>
 						{AnnotationFormText.yourAge[language.toString()]}
 					</FormLabel>
 					<TextField
 						required
+						className = {classes.root}
 						id="standard-number"
 						label={AnnotationFormText.text.number[language.toString()]}
 						type="number"
@@ -109,6 +113,7 @@ const AnnotationForm = ({ nextPage }) => {
 				</FormControl>
 				<Link to={`${nextPage}`} >
 					<Button
+					    className = {classes.root}
 						onClick={() => writeFormData()}
 					> {AnnotationFormText.submit[language.toString()]} </Button>
 				</Link>

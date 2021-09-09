@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import './Header.css';
 import logo from '../assets/static/logo/uohyd-logo.jpg';
 
-function Header(){
+function Header({color}){
     return(
         <nav className = 'header'>
             <div className = 'header_pic'>
@@ -16,19 +16,19 @@ function Header(){
             </div>
             <div className = 'header_options'>
                 <Link to = '/'>
-                    <div className = 'options'>Home</div>
+                    <div className = {color}>Home</div>
                 </Link>
                 <Link to = '/about'>
-                <div className = 'options'>About Us</div>
+                <div className = {color}>About Us</div>
                 </Link>
                 <Link to = '/privacy'>
-                <div className = 'options'>Privacy Policy</div>
+                <div className = {color}>Privacy Policy</div>
                 </Link>
                 <Link to = '/readme'>
-                <div className = 'options'>Readme</div>
+                <div className = {color}>Readme</div>
                 </Link>
                 <Link to = '/purpose'>
-                <div className = 'options'>Our Purpose</div>
+                <div className = {color}>Our Purpose</div>
                 </Link>
             </div>
         </nav>
